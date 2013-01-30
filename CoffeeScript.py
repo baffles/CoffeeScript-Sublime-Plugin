@@ -143,6 +143,8 @@ class RunCakeTaskCommand(WindowCommand):
 			cakepath = path.join(self.window.folders()[0], 'Cakefile')
 			if not path.exists(cakepath):
 				cakepath = path.dirname(self.window.active_view().file_name())
+			else:
+				cakepath = path.dirname(cakepath)
 
 		if not path.exists(cakepath):
 			return sublime.status_message("Cakefile not found.")
